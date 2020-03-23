@@ -16,26 +16,25 @@ namespace storeapp
             DataTable dt = new DataTable();
             ServiceReference1.ServiceClient ser = new ServiceReference1.ServiceClient();
             ds = ser.getcat();
-            /*dt = ds.Tables["category"];
-            foreach (DataRow dr in dt.Rows)
-            {
-               Response.Write("\n"+"<hr/>"+dr["cname"].ToString()+"\n");
-                Button b = new Button();
-                b.Text = "view";
-            }*/
-            GridView1.DataSourceID = null;
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
+            dt = ds.Tables["category"];
+            Response.Write("\n" + "NO." + "NAME" + "\n");
             
-
+            if (Session["em"] != null)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+            //        Response.Write("<img src='" + "~/images/3.jpg" + "'/>");
+                    
+                    Response.Write("\n" + "<hr/>" + dr["cid"] + "  " + "<a href='" + "product.aspx?cid=" + dr["cid"] + "'>"+"  "+ dr["cname"].ToString() + "</a>"+"\t");
+                    
+                }
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
+            }
+            
         }
-
-        protected void GridView1_SelectedIndexChanged(object sender, GridViewEditEventArgs e)
-        {
-            Response.Write(GridView1.SelectedRow.Cells[0].Text);
-            int ind=GridView1.SelectedIndex;
-            Session["cid"] = GridView1.SelectedDataKey[0].ToString();
-            //Response.Redirect("/product.aspx");
-        }
+        
     }
 }

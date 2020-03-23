@@ -65,7 +65,6 @@ C:\Users\VIPUL\source\repos\WCFService1\storeapp\bin\Antlr3.Runtime.pdb
 C:\Users\VIPUL\source\repos\WCFService1\storeapp\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\VIPUL\source\repos\WCFService1\storeapp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\VIPUL\source\repos\WCFService1\storeapp\obj\Debug\storeapp.csprojAssemblyReference.cache
-C:\Users\VIPUL\source\repos\WCFService1\storeapp\obj\Debug\storeapp.csproj.CoreCompileInputs.cache
 C:\Users\VIPUL\source\repos\WCFService1\storeapp\obj\Debug\storeapp.csproj.CopyComplete
 C:\Users\VIPUL\source\repos\WCFService1\storeapp\obj\Debug\storeapp.dll
 C:\Users\VIPUL\source\repos\WCFService1\storeapp\obj\Debug\storeapp.pdb

@@ -20,6 +20,42 @@ namespace storeapp.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getcat", ReplyAction="http://tempuri.org/IService/getcatResponse")]
         System.Threading.Tasks.Task<System.Data.DataSet> getcatAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getPro", ReplyAction="http://tempuri.org/IService/getProResponse")]
+        System.Data.DataSet getPro();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getPro", ReplyAction="http://tempuri.org/IService/getProResponse")]
+        System.Threading.Tasks.Task<System.Data.DataSet> getProAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getUsr", ReplyAction="http://tempuri.org/IService/getUsrResponse")]
+        System.Data.DataSet getUsr();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getUsr", ReplyAction="http://tempuri.org/IService/getUsrResponse")]
+        System.Threading.Tasks.Task<System.Data.DataSet> getUsrAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getReg", ReplyAction="http://tempuri.org/IService/getRegResponse")]
+        void getReg(string u, string e, string p);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getReg", ReplyAction="http://tempuri.org/IService/getRegResponse")]
+        System.Threading.Tasks.Task getRegAsync(string u, string e, string p);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Inorder", ReplyAction="http://tempuri.org/IService/InorderResponse")]
+        void Inorder(string oname, string oimage, int weight, int price, int cid, int pid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Inorder", ReplyAction="http://tempuri.org/IService/InorderResponse")]
+        System.Threading.Tasks.Task InorderAsync(string oname, string oimage, int weight, int price, int cid, int pid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getOrder", ReplyAction="http://tempuri.org/IService/getOrderResponse")]
+        System.Data.DataSet getOrder();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getOrder", ReplyAction="http://tempuri.org/IService/getOrderResponse")]
+        System.Threading.Tasks.Task<System.Data.DataSet> getOrderAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/delOrder", ReplyAction="http://tempuri.org/IService/delOrderResponse")]
+        void delOrder(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/delOrder", ReplyAction="http://tempuri.org/IService/delOrderResponse")]
+        System.Threading.Tasks.Task delOrderAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +91,54 @@ namespace storeapp.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Data.DataSet> getcatAsync() {
             return base.Channel.getcatAsync();
+        }
+        
+        public System.Data.DataSet getPro() {
+            return base.Channel.getPro();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> getProAsync() {
+            return base.Channel.getProAsync();
+        }
+        
+        public System.Data.DataSet getUsr() {
+            return base.Channel.getUsr();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> getUsrAsync() {
+            return base.Channel.getUsrAsync();
+        }
+        
+        public void getReg(string u, string e, string p) {
+            base.Channel.getReg(u, e, p);
+        }
+        
+        public System.Threading.Tasks.Task getRegAsync(string u, string e, string p) {
+            return base.Channel.getRegAsync(u, e, p);
+        }
+        
+        public void Inorder(string oname, string oimage, int weight, int price, int cid, int pid) {
+            base.Channel.Inorder(oname, oimage, weight, price, cid, pid);
+        }
+        
+        public System.Threading.Tasks.Task InorderAsync(string oname, string oimage, int weight, int price, int cid, int pid) {
+            return base.Channel.InorderAsync(oname, oimage, weight, price, cid, pid);
+        }
+        
+        public System.Data.DataSet getOrder() {
+            return base.Channel.getOrder();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataSet> getOrderAsync() {
+            return base.Channel.getOrderAsync();
+        }
+        
+        public void delOrder(int id) {
+            base.Channel.delOrder(id);
+        }
+        
+        public System.Threading.Tasks.Task delOrderAsync(int id) {
+            return base.Channel.delOrderAsync(id);
         }
     }
 }

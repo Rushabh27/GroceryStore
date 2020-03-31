@@ -12,21 +12,31 @@ namespace storeapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Literal1.Text += "<div class='row'>";
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
             ServiceReference1.ServiceClient ser = new ServiceReference1.ServiceClient();
             ds=ser.getPro();
             dt = ds.Tables["product"];
-            Response.Write("\n" + "NO." + "NAME" + "IMAGE" + "WEIGHT(In Kgs.)" + "PRICE" + "\n");
             foreach (DataRow dr in dt.Rows)
             {
                 if ((dr["catid"]).ToString() == Request.QueryString["cid"])
                 {
-                    Response.Write("\n" + "<hr/>" + dr["pid"] + "  " + "<a href='" + "order.aspx?pid=" + dr["pid"] + "'>"+"  "+ dr["pname"].ToString() + "</a>"+"  "+"<img src='" + Page.ResolveUrl("" + dr["pimage"]) +"'/>" +"  "+ dr["weight"] + "  " + dr["price"] + "  " + "\n");
-                    Response.Write("<input type=\"button\" value=\"ADD\" onclick=\"javascript:window.location.href='order.aspx?pid="+ dr["pid"] +"'\" />");
+                    Literal1.Text += "<div class='col-sm-4'>";
+                    Literal1.Text += "<div class='panel panel-primary'>";
+                    Literal1.Text += "<div class='panel-heading'>" + dr["pname"].ToString() + "</div>";
+                    Literal1.Text += "<div class='panel-body'>";
+                    Literal1.Text += "<img src='" + Page.ResolveUrl("" + dr["pimage"]) + "' class='img-responsive' style='width:100%' alt='Image'>";
+                    Literal1.Text += "</div>";
+                    Literal1.Text += "<div class='panel-footer'>&#8377;" + dr["price"] + "&nbsp;";
+                    Literal1.Text += "<a href='productInDetail.aspx?pid=" + dr["pid"] + "' class='pull-right btn btn-primary' style='margin-top: -7px;'>Buy Now</a></div>";
+                    Literal1.Text += "</div>";
+                    Literal1.Text += "</div>";
+
+                    
                 }
             }
-
+            Literal1.Text += "</div>";
         }
     }
 }

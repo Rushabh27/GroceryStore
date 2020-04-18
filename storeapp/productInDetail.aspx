@@ -1,51 +1,42 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="productInDetail.aspx.cs" Inherits="storeapp.productInDetail" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="productInDetail.aspx.cs" Inherits="storeapp.productInDetail" %>
 
-<!DOCTYPE html>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div class="container">
-
-            <div class="row">
-                <div class="col-md-3">
-                    <asp:Image ID="Image1" CssClass="img-responsive" runat="server" />
-                </div>
-
+    <div class="container">
+           <div class="row">
+              <div class="col-md-3">
+                   <asp:Image ID="Image1" CssClass="img-responsive" runat="server" />
+               </div>
                 <div class="col-md-5">
-                    Product ID:
-                    <asp:Label ID="lblProductID" runat="server" Text="Label"></asp:Label>
-                    <br />
-                    <br />
-                    Product Name:
-                    <asp:Label ID="lblProductName" runat="server" Text="Label"></asp:Label>
-                    <br />
-                    <br />
-                    Product Price: &#8377;
-                    <asp:Label ID="lblProductPrice" runat="server" Text="Label"></asp:Label>
-                    <br />
-                    <br />
-                    WEIGHT(In Kgs.):
-                    <asp:Label ID="lblProductWeight" runat="server" Text="Label"></asp:Label>
-                    <br />
-                    <br />
-                    Quantity:
-                    <asp:TextBox ID="txtQuantity" CssClass="form-control" AutoPostBack="true" Text="1" runat="server" OnTextChanged="txtQuantity_TextChanged"></asp:TextBox>
-                    <br />
-                    <br />
-                    Amount: &#8377;
-                    <asp:Label ID="lblAmount" runat="server" Text="Label"></asp:Label>
-                    <br />
-                    <br />
-                    <asp:Button ID="btnAddToCart" CssClass="btn btn-success" runat="server" Text="Add To Cart" OnClick="btnAddToCart_Click" />
-                    <br />
-                    <br />
-                </div>
-            </div>
-        </div>
-    </form>
-</body>
-</html>
+                   Product ID:
+                   <asp:Label ID="lblProductID" runat="server" Text="Label"></asp:Label>
+                  <br />
+                   <br />
+                   Product Name:
+                   <asp:Label ID="lblProductName" runat="server" Text="Label"></asp:Label>
+                   <br />
+                   <br />
+                   Product Price: &#8377;
+                   <asp:Label ID="lblProductPrice" runat="server" Text="Label"></asp:Label>
+                   <br />
+                  <br />
+                   WEIGHT(In Kgs.):
+                   <asp:Label ID="lblProductWeight" runat="server" Text="Label"></asp:Label>
+                   <br />
+                   <br />
+                   Quantity:
+                   <asp:TextBox ID="txtQuantity" CssClass="form-control" AutoPostBack="true" Text="1" runat="server" OnTextChanged="txtQuantity_TextChanged"></asp:TextBox>
+                   <br />
+                   <br />
+                   Amount: &#8377;
+                   <asp:Label ID="lblAmount" runat="server" Text="Label"></asp:Label>
+                   <br />
+                   <br />
+                  <asp:Button ID="btnAddToCart" CssClass="btn btn-success" runat="server" Text="Add To Cart" OnClick="btnAddToCart_Click" />
+                   <br />
+                   <br />
+               </div>
+           </div>
+    </div>
+</asp:Content>
+   

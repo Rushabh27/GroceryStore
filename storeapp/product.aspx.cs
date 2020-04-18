@@ -12,6 +12,8 @@ namespace storeapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["em"] == null)
+                Response.Redirect("login.aspx");
             Literal1.Text += "<div class='row'>";
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();

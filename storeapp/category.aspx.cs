@@ -18,23 +18,22 @@ namespace storeapp
             ds = ser.getcat();
             dt = ds.Tables["category"];
             Response.Write("\n" + "NO." + "NAME" + "\n");
-            
-            if (Session["em"] != null)
-            {
+
+            if (Session["em"] == null)
+                Response.Redirect("login.aspx");
+        
                 foreach (DataRow dr in dt.Rows)
                 {
-            //        Response.Write("<img src='" + "~/images/3.jpg" + "'/>");
-                    
-                    Response.Write("\n" + "<hr/>" + dr["cid"] + "  " + "<a href='" + "product.aspx?cid=" + dr["cid"] + "'>"+"  "+ dr["cname"].ToString() + "</a>"+"\t");
-                    
+                    //        Response.Write("<img src='" + "~/images/3.jpg" + "'/>");
+
+                    Response.Write("\n" + "<hr/>" + dr["cid"] + "  " + "<a href='" + "product.aspx?cid=" + dr["cid"] + "'>" + "  " + dr["cname"].ToString() + "</a>" + "\t");
+
                 }
-            }
-            else
-            {
-                Response.Redirect("login.aspx");
-            }
             
+            
+
         }
-        
+
     }
+    
 }

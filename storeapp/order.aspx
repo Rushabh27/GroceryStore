@@ -1,15 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="storeapp.order" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="order.aspx.cs" Inherits="storeapp.order" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div>
+    </div>
+</asp:Content>

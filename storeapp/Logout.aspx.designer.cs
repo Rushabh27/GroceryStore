@@ -11,7 +11,7 @@ namespace storeapp
 {
 
 
-    public partial class category
+    public partial class WebForm1
     {
     }
 }

@@ -113,6 +113,7 @@
       <DependentUpon>store.mdf</DependentUpon>
     </Content>
     <Content Include="category.aspx" />
+    <Content Include="Logout.aspx" />
     <None Include="Connected Services\ServiceReference1\Service.disco" />
     <None Include="Connected Services\ServiceReference1\configuration91.svcinfo" />
     <None Include="Connected Services\ServiceReference1\configuration.svcinfo" />
@@ -299,6 +300,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

@@ -21,7 +21,7 @@ public interface IService
     [OperationContract]
     void getReg(String u, String e, String p);
     [OperationContract]
-    void Inorder(String oname, String oimage, int weight, int price, int cid, int pid);
+    void Inorder(String oname, String oimage, int weight, int price, int cid, int pid, int qwt);
     [OperationContract]
     DataSet getOrder();
     [OperationContract]

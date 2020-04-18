@@ -14,10 +14,6 @@ namespace storeapp
         {
             Response.Write("<center><h1>YOUR ORDER</h1></center>"+"\n");
          
-            Response.Write("<form id='1' runat='server'><select name='new1'><option value=Quantity>Quantity(In kgs.)</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select></form>");
-            Response.Write("<input type=\"button\" value=\"try\" onclick=\"javascript:window.location.href='Contact.aspx" + "'\" />");
-           
-
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
             ServiceReference1.ServiceClient ser = new ServiceReference1.ServiceClient();
@@ -28,7 +24,7 @@ namespace storeapp
             {
                 if ((dr["pid"]).ToString() == Request.QueryString["pid"])
                 {
-                    ser.Inorder(dr["pname"].ToString(), dr["pimage"].ToString(), Convert.ToInt32(dr["weight"]), Convert.ToInt32(dr["price"]), Convert.ToInt32(dr["pid"]), Convert.ToInt32(dr["catid"]));
+                    ser.Inorder(dr["pname"].ToString(), dr["pimage"].ToString(), Convert.ToInt32(dr["weight"]), Convert.ToInt32(dr["price"]), Convert.ToInt32(dr["pid"]), Convert.ToInt32(dr["catid"]),Convert.ToInt32(Request.QueryString["qut"]));
                 }
             }
             if(Request.QueryString["oid"]!=null)
@@ -41,7 +37,6 @@ namespace storeapp
             foreach (DataRow dr in dt.Rows)
             {
                 Response.Write("\n" + "<hr/>" + dr["oid"] + "  " + "<a href='" + "order.aspx?pid=" + dr["pid"] + "'>" + "  " + dr["oname"].ToString() + "</a>" + "  " + "<img src='" + Page.ResolveUrl("" + dr["oimage"]) + "'/>" + "  " + dr["weight"] + "  " + dr["price"] + "  " + "\n");
-                Response.Write("<input type=text value='hello'>");
                 Response.Write("<input type=\"button\" value=\"Remove\" onclick=\"javascript:window.location.href='order.aspx?oid=" + dr["oid"] + "'\" />");
                 tot = tot + Convert.ToInt32(dr["price"]);
             }

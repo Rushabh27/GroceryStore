@@ -19,7 +19,7 @@ namespace storeapp
             dt = ds.Tables["product"];
             foreach (DataRow dr in dt.Rows)
             {
-                if ((dr["catid"]).ToString() == Request.QueryString["pid"])
+                if ((dr["pid"]).ToString() == Request.QueryString["pid"])
                 {
                     lblProductID.Text = Request.QueryString["pid"];
                     lblProductName.Text = dr["pname"].ToString();

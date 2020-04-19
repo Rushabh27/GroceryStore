@@ -89,14 +89,14 @@ public class Service : IService
             throw new FaultException<string>("Error: " + fex);
         }
     }
-    public void Inorder(String oname, String oimage, int weight,int price,int pid,int cid)
+    public void Inorder(String oname, String oimage, int weight,int price,int pid,int cid, int qwt)
     {
 
         //DataSet ds = new DataSet();
         try
         {
             SqlConnection con = new SqlConnection("Data Source=(LocalDb)\\MSSQLLocalDB;Initial Catalog=store;Integrated Security=True;Pooling=False");
-            string Query = "insert into [Order](oname,oimage,weight,price,pid,cid)values(@oname,@oimage,@weight,@price,@pid,@cid)";
+            string Query = "insert into [Order](oname,oimage,weight,price,pid,cid,qwt)values(@oname,@oimage,@weight,@price,@pid,@cid,@qwt)";
             SqlCommand cmd = new SqlCommand(Query, con);
             cmd.Parameters.AddWithValue("@oname", oname);
             cmd.Parameters.AddWithValue("@oimage", oimage);
@@ -104,6 +104,8 @@ public class Service : IService
             cmd.Parameters.AddWithValue("@price", price);
             cmd.Parameters.AddWithValue("@pid", pid);
             cmd.Parameters.AddWithValue("@cid", cid);
+            cmd.Parameters.AddWithValue("@qwt", qwt);
+
             
             con.Open();
             cmd.ExecuteNonQuery();

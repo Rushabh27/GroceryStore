@@ -1,29 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="storeapp.register" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="register.aspx.cs" Inherits="storeapp.register" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="login-card">
+        <h1>Register</h1><br/>
         <div>
-            USERNAME:-&nbsp;
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            EMAIL:-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-            <br />
-            <br />
-            PASSWORD:-&nbsp;
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-            <br />
-            <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Register" />
+            <asp:TextBox CssClass="textboxo" ID="TextBox1" runat="server" placeholder="Username"></asp:TextBox>
+            <asp:TextBox CssClass="textboxo" ID="TextBox2" runat="server" placeholder="Email"></asp:TextBox>
+            <asp:TextBox CssClass="textboxo" ID="TextBox3" runat="server" placeholder="Password"></asp:TextBox>
+            <asp:Button CssClass="buttono" ID="Button1" runat="server" OnClick="Button1_Click" Text="Register" />
         </div>
-    </form>
-</body>
-</html>
+        <div class="login-help">
+           <a href="login.aspx">Already Registered!</a>
+        </div>
+    </div>
+</asp:Content>

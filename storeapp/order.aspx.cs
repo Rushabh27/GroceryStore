@@ -12,23 +12,21 @@ namespace storeapp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Write("<center><h1>YOUR ORDER</h1></center>"+"\n");
+            if (Session["em"] == null)
+                Response.Redirect("login.aspx");
+            Response.Write("<center><h1>YOUR ORDER</h1></center><table style='width: 91 %'><tr><th>" + "\n");
          
-            Response.Write("<form id='1' runat='server'><select name='new1'><option value=Quantity>Quantity(In kgs.)</option><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option></select></form>");
-            Response.Write("<input type=\"button\" value=\"try\" onclick=\"javascript:window.location.href='Contact.aspx" + "'\" />");
-           
-
             DataSet ds = new DataSet();
             DataTable dt = new DataTable();
             ServiceReference1.ServiceClient ser = new ServiceReference1.ServiceClient();
             ds = ser.getPro();
             dt = ds.Tables["product"];
-            Response.Write("\n" + "NO."+" " + "NAME"+"  " + "IMAGE"+" " + "WEIGHT(In Kgs.)"+" " + "PRICE"+" " + "\n");
+            Response.Write("NO.</th><th>NAME</th><th>IMAGE</th><th>PRICE</th><th>Total Item</th><th>Total Price of product</th><th></th></tr>");
             foreach (DataRow dr in dt.Rows)
             {
                 if ((dr["pid"]).ToString() == Request.QueryString["pid"])
                 {
-                    ser.Inorder(dr["pname"].ToString(), dr["pimage"].ToString(), Convert.ToInt32(dr["weight"]), Convert.ToInt32(dr["price"]), Convert.ToInt32(dr["pid"]), Convert.ToInt32(dr["catid"]));
+                    ser.Inorder(dr["pname"].ToString(), dr["pimage"].ToString(), Convert.ToInt32(dr["weight"]), Convert.ToInt32(dr["price"]), Convert.ToInt32(dr["pid"]), Convert.ToInt32(dr["catid"]),Convert.ToInt32(Request.QueryString["qut"]));
                 }
             }
             if(Request.QueryString["oid"]!=null)
@@ -38,15 +36,16 @@ namespace storeapp
             int tot = 0;
             ds = ser.getOrder();
             dt = ds.Tables["order"];
+            int xy=0;
             foreach (DataRow dr in dt.Rows)
             {
-                Response.Write("\n" + "<hr/>" + dr["oid"] + "  " + "<a href='" + "order.aspx?pid=" + dr["pid"] + "'>" + "  " + dr["oname"].ToString() + "</a>" + "  " + "<img src='" + Page.ResolveUrl("" + dr["oimage"]) + "'/>" + "  " + dr["weight"] + "  " + dr["price"] + "  " + "\n");
-                Response.Write("<input type=text value='hello'>");
-                Response.Write("<input type=\"button\" value=\"Remove\" onclick=\"javascript:window.location.href='order.aspx?oid=" + dr["oid"] + "'\" />");
-                tot = tot + Convert.ToInt32(dr["price"]);
+                xy++;
+                Response.Write("<tr><td width='8%'>" + xy + "</td><td width='12%'>  " + dr["oname"].ToString() + "</td><td width='20%'><img src='" + Page.ResolveUrl("" + dr["oimage"]) + "'/></td><td width='12%'>" + dr["price"]+"/" + dr["weight"] + "kg</td><td width='12%'>" + dr["qwt"] + "</td><td width='15%'>" + Convert.ToInt32(dr["qwt"]) * Convert.ToInt32(dr["price"]) + "</td><td width='12%'>");
+                Response.Write("<input type=\"button\" value=\"Remove\" onclick=\"javascript:window.location.href='order.aspx?oid=" + dr["oid"] + "'\" />" + "</td></tr>");
+                tot = tot + (Convert.ToInt32(dr["price"])* Convert.ToInt32(dr["qwt"]));
             }
-            Response.Write("\n"+"<center><h2>TOTAL PRICE IS:-" + tot+"</h2></center>");
-            Response.Write("\n"+"<input type=\"button\" value=\"BUY\" onclick=\"javascript:window.location.href='placeOrder.aspx" + "'\" />");
+            Response.Write("</table>"+"\n"+"<center><h2>TOTAL PRICE IS:-" + tot+"</h2>");
+            Response.Write("\n"+"<input class='buttono' type=\"button\" value=\"BUY\" onclick=\"javascript:window.location.href='placeOrder.aspx?tot="+tot + "'\" /></center>");
 
         }
     }

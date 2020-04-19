@@ -40,10 +40,10 @@ namespace storeapp.ServiceReference1 {
         System.Threading.Tasks.Task getRegAsync(string u, string e, string p);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Inorder", ReplyAction="http://tempuri.org/IService/InorderResponse")]
-        void Inorder(string oname, string oimage, int weight, int price, int cid, int pid);
+        void Inorder(string oname, string oimage, int weight, int price, int cid, int pid, int qwt);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Inorder", ReplyAction="http://tempuri.org/IService/InorderResponse")]
-        System.Threading.Tasks.Task InorderAsync(string oname, string oimage, int weight, int price, int cid, int pid);
+        System.Threading.Tasks.Task InorderAsync(string oname, string oimage, int weight, int price, int cid, int pid, int qwt);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/getOrder", ReplyAction="http://tempuri.org/IService/getOrderResponse")]
         System.Data.DataSet getOrder();
@@ -117,12 +117,12 @@ namespace storeapp.ServiceReference1 {
             return base.Channel.getRegAsync(u, e, p);
         }
         
-        public void Inorder(string oname, string oimage, int weight, int price, int cid, int pid) {
-            base.Channel.Inorder(oname, oimage, weight, price, cid, pid);
+        public void Inorder(string oname, string oimage, int weight, int price, int cid, int pid, int qwt) {
+            base.Channel.Inorder(oname, oimage, weight, price, cid, pid, qwt);
         }
         
-        public System.Threading.Tasks.Task InorderAsync(string oname, string oimage, int weight, int price, int cid, int pid) {
-            return base.Channel.InorderAsync(oname, oimage, weight, price, cid, pid);
+        public System.Threading.Tasks.Task InorderAsync(string oname, string oimage, int weight, int price, int cid, int pid, int qwt) {
+            return base.Channel.InorderAsync(oname, oimage, weight, price, cid, pid, qwt);
         }
         
         public System.Data.DataSet getOrder() {

@@ -1,31 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="placeOrder.aspx.cs" Inherits="storeapp.placeOrder" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="placeOrder.aspx.cs" Inherits="storeapp.placeOrder" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style2 {
-            margin-left: 89px;
-        }
-        .auto-style3 {
-            margin-left: 70px;
-        }
-        .auto-style4 {
-            margin-left: 44px;
-        }
-        .auto-style5 {
-            margin-left: 87px;
-        }
-        .auto-style6 {
-            margin-left: 75px;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <center>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div style="text-align:center">
         <p>
             Name :-
             <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style5" Width="162px"></asp:TextBox>
@@ -44,9 +20,5 @@
         <p>
             <asp:Button ID="Button1" runat="server" CssClass="auto-style6" Text="PLACE ORDER" Width="135px" />
         </p>
-    </center>
-    </form>
-    
-</body>
-
-</html>
+    </div>
+</asp:Content>
